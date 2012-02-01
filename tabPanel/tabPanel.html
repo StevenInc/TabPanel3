@@ -1,0 +1,277 @@
+<!DOCTYPE HTML">
+
+<html>
+<head>
+	<title>Tab Panel Challange</title>
+	<style>
+		#tabPanelContainer{
+			/*background-color: #BADA55;*/
+			width: 200px;
+			height:200px;
+			background-color:pink;
+		}
+		
+		.cards{
+			border: #90C6EB 1px solid;
+			padding: 10px;
+			background-color: #D7E7F3;
+		}
+		
+		.alltabs{
+			position: relative;
+			bottom: 0;
+			height: 30px;
+			float: left;
+			min-width: 60px;
+			text-align: center;
+			font-family: 'Yesteryear', cursive;
+			line-height: 36px;
+			font-size: 20px;
+			padding : 0 10px 0 10px;
+			margin-left: 5px;
+			-webkit-border-top-left-radius: 10px;
+			-webkit-border-top-right-radius: 10px;
+			-moz-border-radius-topleft: 10px;
+			-moz-border-radius-topright: 10px;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+			cursor: pointer;
+		}
+		
+		.gradientSelected{
+		background: #ebf1f6; /* Old browsers */
+		/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+		background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ViZjFmNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjgxJSIgc3RvcC1jb2xvcj0iI2FiZDNlZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijk5JSIgc3RvcC1jb2xvcj0iIzg5YzNlYiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNkNWViZmIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+		background: -moz-linear-gradient(top,  #ebf1f6 0%, #abd3ee 81%, #89c3eb 99%, #d5ebfb 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ebf1f6), color-stop(81%,#abd3ee), color-stop(99%,#89c3eb), color-stop(100%,#d5ebfb)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #ebf1f6 0%,#abd3ee 81%,#89c3eb 99%,#d5ebfb 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #ebf1f6 0%,#abd3ee 81%,#89c3eb 99%,#d5ebfb 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #ebf1f6 0%,#abd3ee 81%,#89c3eb 99%,#d5ebfb 100%); /* IE10+ */
+		background: linear-gradient(top,  #ebf1f6 0%,#abd3ee 81%,#89c3eb 99%,#d5ebfb 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebf1f6', endColorstr='#d5ebfb',GradientType=0 ); /* IE6-8 */
+		border: #90C6EB 1px solid;	
+		color: black;
+		top: 0px;
+		}
+		
+		.gradientNormal{
+		background: #fefefe; /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZlZmVmZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjIlIiBzdG9wLWNvbG9yPSIjZDFkMWQxIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2UyZTJlMiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+background: -moz-linear-gradient(top,  #fefefe 0%, #d1d1d1 2%, #e2e2e2 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fefefe), color-stop(2%,#d1d1d1), color-stop(100%,#e2e2e2)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #fefefe 0%,#d1d1d1 2%,#e2e2e2 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #fefefe 0%,#d1d1d1 2%,#e2e2e2 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #fefefe 0%,#d1d1d1 2%,#e2e2e2 100%); /* IE10+ */
+background: linear-gradient(top,  #fefefe 0%,#d1d1d1 2%,#e2e2e2 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', endColorstr='#e2e2e2',GradientType=0 ); /* IE6-8 */
+		border-top: #BFBFBF 1px solid;	
+		border-right: #BFBFBF 1px solid;	
+		border-left: #BFBFBF 1px solid;	
+		color: #B2B0B0;
+		top: 1px;
+		}
+		
+	</style>
+	
+	<!--[if gte IE 9]>
+	  <style type="text/css">
+	    .gradient {
+	       filter: none;
+	    }
+	  </style>
+	<![endif]-->
+	<link href='http://fonts.googleapis.com/css?family=Yesteryear' rel='stylesheet' type='text/css'>
+	<script src="../lib/jquery-1.7.1.min.js" type="text/javascript"></script>
+	<!--- this is a jQuery plugin that I wrote from a tutorial a couple of years ago. --->
+	<script src="../jquery.center.js" type="text/javascript"></script>
+	<script language="JavaScript">
+
+	
+	//setPanelDim() : set this height of the div to panelHeight minus tabHeight and Set the Width to panelWidth.
+
+		
+		var panelWidth = 700;
+		var panelHeight = 200;
+		var tabHeight = 30;
+		var defaultActiveTab = 0; //zero based.
+		
+		
+		
+		function buildTabPanel(className){
+			targetClass = className;
+			//add the tab panel container to the body of the document.
+			$("body").append('<div id="tabPanelContainer"></div>');
+			
+			var element = $("#tabPanelContainer");
+			
+			//set the width of the panel.
+			element.width(panelWidth);
+			
+			//set the height of the panel.
+			element.height(panelHeight);
+			
+			//append a div to contain the tabs at the top of the panel.
+			element.append("<div class='tabs'></div>");
+			
+			//append a div to contain the "card" panel.
+			element.append("<div class='cards'>Cards</div>");
+			
+			//loop of the li classes and build the tabs.
+			jQuery.each($("."+className).children("li"),function(idx,ui){
+					//console.info($(ui).attr("class"));
+					addTab($(ui).attr("class"),idx);
+			})
+			
+			
+			//set the css to the tabs div.
+			$(".tabs").css({
+				"height":tabHeight,
+				"position":"absolute",
+				"top": 0,
+				"width":"100%"
+			});
+			
+			$(".cards").css({
+				"height":panelHeight,
+				"marginTop": tabHeight+2
+			});
+			
+			$(".allTabs").css({
+				"height":tabHeight
+			});
+			
+			$("ul."+className).hide();
+			setActiveTab(defaultActiveTab);
+			element.center();
+			
+		};
+		
+		
+		function addTab(text,cardId){ //text = tab text, cardId = id to retrive ajax content with.
+			//default the tab text to tab if none is provided.
+			tabText = text || "Tab ";
+			
+			//get a count of the existing tabs
+			var allTabs = $(".tabs").children();
+			var tabCount = allTabs.length;
+			
+			//if no card id is provided then use the tab count.
+			if(cardId === undefined){cardId = tabCount+1};
+			var tabId = tabCount+1;
+			
+			//if a text is not provided use "Tab" + tab count.
+			if(text === undefined){tabText = tabText+tabCount};
+			$(".tabs").append("<div class='allTabs gradientNormal' id='"+tabId+"' cardId='"+cardId+"'>"+tabText+"</div>");
+			
+			//add the hover listeners to the new tab.
+			var thisTab = $("#"+tabId);
+			
+			thisTab.hover(
+				//enter
+				function(){
+					$(this).css({"color":"black"})
+				},
+				
+				//leave
+				function(){
+					if(!isActiveTab(this)){
+						$(this).css({"color":"#B2B0B0"})
+					};
+				}
+			);//hover
+			
+			//add the click listener to the tab.
+			
+			thisTab.click(function(ui){setActiveTab(ui)});
+			
+		};//addTab()
+		
+
+		function setActiveTab(ui){
+				
+				var clickedTab;
+				//overload this function to accept an idx (int).
+				if(typeof(ui) ==='number'){
+					var allTabs = $(".tabs").children();
+					clickedTab = allTabs[ui];
+					//console.info(typeof(clickedTab));
+					if(typeof(clickedTab) != 'object'){
+						return false;
+					}
+				}
+				else{// object passed in.
+					clickedTab = ui.currentTarget;
+				}
+			
+				clickedTab = $(clickedTab);
+				//console.info('Clicked :',ui);
+				//get a reference to the tab clicked on.
+				
+				//reset the previously selected tab.
+				resetSelectedTab();
+				//remove the normal tab class.
+				clickedTab.removeClass("gradientNormal");
+				//add the highlighted tab class.
+				clickedTab.addClass("gradientSelected");
+				
+				//call the content for the tab panel.
+				//for this demo we will just populate a single line item.
+				//This could be an ajax request to a service layer that returns dynamic content.
+				var cardId = clickedTab.attr("cardId"); 
+				//clear the existing tab info.
+				$(".cards").html("");
+				//get the content from the value inside the <li> elements 
+				var thisCardPanelIdx = parseInt(clickedTab.attr("cardid"))+1;
+				//console.info(thisCardPanelIdx);
+				var thisContent = $("."+targetClass).children("li:nth-child("+thisCardPanelIdx+")").html();
+				$(".cards").html(thisContent);
+			};
+		
+		function isActiveTab(tab){
+			var thisClass =  $(tab).attr("class");
+			var classNames = thisClass.split(' ');
+			for(var i=0; i<classNames.length; i++){
+				if(classNames[i] === 'gradientSelected'){
+				 return true; //if selected return true.
+				};
+			}; //loop over classnames.
+			return false;
+		};//isActiveTab()
+		
+		function resetSelectedTab(){
+			var allTabs = $(".tabs").children();
+			jQuery.each(allTabs,function(idx,ui){
+				if(isActiveTab(ui)){
+					$(this).removeClass("gradientSelected");
+					$(this).addClass("gradientNormal");
+					$(this).css({"color":"#B2B0B0"}); //FF hack.
+				};
+			});//loop.
+		}; //resetSelectedTab
+		
+
+		
+		
+</script>	
+</head>
+
+<body>
+
+
+
+<ul class="tabPanel_1">
+	<li class="Expenses">I am the content for the Expenses Panel</li>
+	<li class="Sales">I am the content for the Sales Panel</li>
+	<li class="Commissions">I am the content for the Commissions Panel</li>
+	<li class="Marketing">I am the content for the Marketing Panel</li>
+	<li class="Returns">I am the content for the Returns Panel</li>
+</ul>
+
+</body>
+</html>
+<script language="JavaScript">
+	$(function(){
+		buildTabPanel('tabPanel_1');
+	});
+</script>
